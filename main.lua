@@ -5,6 +5,7 @@ local text = ""
 -------------------------------------------
 
 function love.load()
+    love.window.setTitle("Game")
     -- so apparently, the default window size is 800x600... idk if 600 is y or x because im autistic
     -- i want the circle guy to be in the lower section so like
     -- perfect it has to be 400..
