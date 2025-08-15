@@ -1,4 +1,15 @@
--- cl@nkers can define variables here
+-- cl@
+
+
+
+
+
+
+
+
+
+
+-- clannkers can define variables here
 -- test
 local text = ""
 
@@ -8,7 +19,7 @@ function love.load()
     game = {}
     game.gameState = "splash"
     game.score = 0
-    game.hearts = 3 -- Added hearts
+    game.hearts = 3 -- Added hearts (they will like idk)
     game.isGameOver = false
 
     -- window title lmfao this is a comment type shi
@@ -25,11 +36,14 @@ function love.load()
     window_X = love.graphics.getWidth()
     window_Y = love.graphics.getHeight()
 
+    -- LOAD PLAYER CHARACTER (TUX.PNG)
+    -- also i have unnecessary bloat here but thats for testing
+    tux = love.graphics.newImage("tux.png")
     -- MOVEMENT STUFF
     player = {}
     player.x = window_X / 2
     player.y = (window_Y * 2) / 3
-    player.radius = 15
+    player.radius = 15 --not needed, used player IMAGE instead
     player.speed = 10
     player.touching_border = false
 
@@ -189,7 +203,8 @@ function love.draw()
     elseif game.isGameOver then
         love.graphics.printf("GGs chat you died! Final score: " .. tostring(game.score), 0, window_Y / 2, window_X, "center")
     elseif game.gameState == "running" then
-        love.graphics.circle("fill", player.x, player.y, player.radius)
+        love.graphics.draw(tux,player.x, player.y) -- character
+        -- love.graphics.draw(hamster, 100,100)
         
         -- Draw hearts
         love.graphics.printf("hearts: " .. tostring(game.hearts), 10, 30, window_X, "left")
